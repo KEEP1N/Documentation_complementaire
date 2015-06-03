@@ -5,20 +5,20 @@ empl_nom varchar(100) NOT NULL,
 empl_prenom varchar(150)NOT NULL,
 empl_DDN date,
 empl_mail varchar(255),
-empl_codePin numeric(4),
+empl_codePin varchar(4),
 empl_password varchar(100),
-empl_tel varchar(10),
+empl_tel varchar(14),
 empl_ro_ID int NOT NULL,
 empl_post_ID int NOT NULL,
-empl_entr_numsiret varchar(20)NOT NULL,
+empl_entr_numsiret varchar(20) NOT NULL,
 empl_niv_ID int NOT NULL,
 CONSTRAINT pk_employer PRIMARY KEY(empl_ID));
 
 CREATE TABLE entreprise(
 entr_numsiret varchar(20) NOT NULL,
 entr_nom varchar(50),
-entr_denomination varchar(4),
-entr_tel varchar(10),
+entr_denomination varchar(6),
+entr_tel varchar(14),
 CONSTRAINT pk_entreprise PRIMARY KEY (entr_numsiret));
 
 CREATE TABLE poste(
@@ -46,7 +46,7 @@ CONSTRAINT pk_acces PRIMARY KEY(acc_ID));
 
 CREATE TABLE porte(
 port_ID int NOT NULL AUTO_INCREMENT,
-port_libelle varchar(7),
+port_libelle varchar(20),
 port_eta_ID int NOT NULL,
 port_bat_ID int NOT NULL,
 CONSTRAINT pk_porte PRIMARY KEY(port_ID));
@@ -58,7 +58,7 @@ CONSTRAINT pk_etage PRIMARY KEY(eta_ID));
 
 CREATE TABLE batiment(
 bat_ID int NOT NULL AUTO_INCREMENT,
-bat_libelle varchar(7),
+bat_libelle varchar(20),
 CONSTRAINT pk_batiment PRIMARY KEY(bat_ID));
 
 CREATE TABLE role(
