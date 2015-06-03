@@ -14,7 +14,6 @@ empl_entr_numsiret varchar(20)NOT NULL,
 empl_niv_ID int NOT NULL,
 CONSTRAINT pk_employer PRIMARY KEY(empl_ID));
 
-
 CREATE TABLE entreprise(
 entr_numsiret varchar(20) NOT NULL,
 entr_nom varchar(50),
@@ -28,7 +27,8 @@ post_libelle varchar(250),
 post_serv_ID int NOT NULL,
 CONSTRAINT pk_poste PRIMARY KEY(post_ID));
 
-CREATE TABLE service(serv_ID int NOT NULL AUTO_INCREMENT,
+CREATE TABLE service(
+serv_ID int NOT NULL AUTO_INCREMENT,
 serv_libelle varchar(250),
 CONSTRAINT pk_service PRIMARY KEY(serv_ID));
 
@@ -50,7 +50,6 @@ port_libelle varchar(7),
 port_eta_ID int NOT NULL,
 port_bat_ID int NOT NULL,
 CONSTRAINT pk_porte PRIMARY KEY(port_ID));
-
 
 CREATE TABLE etage(
 eta_ID int NOT NULL AUTO_INCREMENT,
