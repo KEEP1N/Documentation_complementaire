@@ -33,22 +33,6 @@ ADD CONSTRAINT fk_poste_post_serv_ID
 FOREIGN KEY(post_serv_ID)
 REFERENCES service(serv_ID);
 
-ALTER TABLE  comporter
-ADD CONSTRAINT fk_comporter_comp_niv_ID
-FOREIGN KEY(comp_niv_ID)
-REFERENCES  niveau(niv_ID);
-
-ALTER TABLE  comporter
-ADD CONSTRAINT fk_comporter_comp_ser_ID
-FOREIGN KEY(comp_serv_ID)
-REFERENCES  service(serv_ID);
-
-ALTER TABLE comporter
-ADD CONSTRAINT fk_comporter_comp_serv_id
-FOREIGN KEY(comp_serv_id)
-REFERENCES service(serv_id);
-
-
 ALTER TABLE accorder
 ADD CONSTRAINT fk_accorder_acco_niv_id
 FOREIGN KEY (acco_niv_id)

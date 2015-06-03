@@ -74,11 +74,6 @@ dev_heure time,
 dev_dateJour date,
 CONSTRAINT pk_deverouiller PRIMARY KEY(dev_port_ID,dev_acc_ID));
 
-CREATE TABLE comporter(
-comp_niv_ID int NOT NULL,
-comp_serv_ID int NOT NULL,
-CONSTRAINT pk_comporter primary  key(comp_niv_ID,comp_serv_ID));
-
 CREATE TABLE accorder(
 acco_niv_id int NOT NULL,
 acco_acc_id int NOT NULL,
