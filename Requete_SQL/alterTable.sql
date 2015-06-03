@@ -8,11 +8,6 @@ ADD CONSTRAINT fk_deverrouiller_dev_acc_ID
 FOREIGN KEY(dev_acc_ID)
 REFERENCES acces(acc_ID);
 
-ALTER TABLE deverrouiller
-ADD CONSTRAINT fk_deverrouiller_dev_niv_ID
-FOREIGN KEY(dev_niv_ID)
-REFERENCES niveau(niv_ID);
-
 ALTER TABLE employe
 ADD CONSTRAINT fk_employe_empl_ro_ID
 FOREIGN KEY(empl_ro_ID)
@@ -27,6 +22,11 @@ ALTER TABLE employe
 ADD CONSTRAINT fk_employe_empl_entr_numsiret
 FOREIGN KEY(empl_entr_numsiret)
 REFERENCES entreprise(entr_numsiret);
+
+ALTER TABLE employe
+ADD CONSTRAINT fk_empl_niv_ID
+FOREIGN KEY (empl_niv_ID)
+REFERENCES niveau(niv_ID);
 
 ALTER TABLE poste
 ADD CONSTRAINT fk_poste_post_serv_ID
@@ -89,13 +89,8 @@ ADD CONSTRAINT fk_porte_port_bat_ID
 FOREIGN KEY(port_bat_ID)
 REFERENCES batiment(bat_ID);
 
-// Après ajout d\une colonne, si cela ne fonctionne pas, UPDATE la colonne en NULL dans la table concernée
 ALTER TABLE niveau
 ADD CONSTRAINT fk_niveau_serv_ID
 FOREIGN KEY (niv_serv_ID)
 REFERENCES service(serv_ID);
 
-ALTER TABLE employe
-ADD CONSTRAINT fk_empl_niv_ID
-FOREIGN KEY (empl_niv_ID)
-REFERENCES niveau(niv_ID);

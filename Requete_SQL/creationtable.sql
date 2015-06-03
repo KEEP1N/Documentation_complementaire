@@ -11,7 +11,9 @@ empl_tel varchar(10),
 empl_ro_ID int NOT NULL,
 empl_post_ID int NOT NULL,
 empl_entr_numsiret varchar(20)NOT NULL,
+empl_niv_ID int NOT NULL,
 CONSTRAINT pk_employer PRIMARY KEY(empl_ID));
+
 
 CREATE TABLE entreprise(
 entr_numsiret varchar(20) NOT NULL,
@@ -33,6 +35,7 @@ CONSTRAINT pk_service PRIMARY KEY(serv_ID));
 CREATE TABLE niveau(
 niv_ID int NOT NULL AUTO_INCREMENT,
 niv_libelle Varchar(50),
+niv_serv_ID int not NULL,
 CONSTRAINT pk_niveau PRIMARY KEY(niv_ID));
 
 CREATE TABLE acces(
@@ -44,7 +47,10 @@ CONSTRAINT pk_acces PRIMARY KEY(acc_ID));
 CREATE TABLE porte(
 port_ID int NOT NULL AUTO_INCREMENT,
 port_libelle varchar(7),
+port_eta_ID int NOT NULL,
+port_bat_ID int NOT NULL,
 CONSTRAINT pk_porte PRIMARY KEY(port_ID));
+
 
 CREATE TABLE etage(
 eta_ID int NOT NULL AUTO_INCREMENT,
@@ -64,10 +70,9 @@ CONSTRAINT pk_role PRIMARY KEY(ro_Id));
 CREATE TABLE deverrouiller(
 dev_port_ID int NOT NULL,
 dev_acc_ID int NOT NULL,
-dev_niv_ID int NOT NULL,
 dev_heure time,
 dev_dateJour date,
-CONSTRAINT pk_deverouiller PRIMARY KEY(dev_port_ID,dev_acc_ID,dev_niv_ID));
+CONSTRAINT pk_deverouiller PRIMARY KEY(dev_port_ID,dev_acc_ID));
 
 CREATE TABLE comporter(
 comp_niv_ID int NOT NULL,
@@ -94,13 +99,9 @@ aj_port_id int not null,
 aj_niv_id int not null,
 constraint pk_ajouter primary key(aj_port_id, aj_niv_id));
 
-ALTER TABLE porte
-ADD port_eta_ID int NOT NULL,
-ADD port_bat_ID int NOT NULL;
 
-ALTER TABLE niveau
-ADD niv_serv_ID int NOT NULL;
 
-ALTER TABLE employe
-ADD empl_niv_ID int NOT NULL;
+
+
+
 
